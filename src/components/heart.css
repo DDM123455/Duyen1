@@ -1,0 +1,31 @@
+/* 
+.heart-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.heart {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 100px;
+  height: 100px;
+  background-image: url("heart.png"); /* Thay thế 'heart.png' bằng đường dẫn đến hình ảnh trái tym của bạn */
+  background-size: cover;
+  animation: flyUp 1s ease-in-out forwards;
+}
+
+@keyframes flyUp {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+} */
