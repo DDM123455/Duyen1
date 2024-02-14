@@ -4,15 +4,17 @@ import bg from "./image/lastOne.mp4";
 import fi from "./image/cute-love-bear-roses-ou7zho5oosxnpo6k.gif";
 import GIFPlayer from "react-gif-player";
 import fa from "./image/bear-kiss-bear-kisses.gif";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Confettti from "./components/confetti";
-
+import music from "./image/luan-tang.mp3";
 function App() {
   const [textC, setText] = useState(1);
   const [widthH, setWidth] = useState(10);
   const [heightH, setheight] = useState(0);
   const [font, setFont] = useState(15);
   const [yes, setYes] = useState(false);
+
+  const audioRef = useRef(null);
 
   const textContent = [
     { id: 1, content: "No" },
@@ -38,25 +40,35 @@ function App() {
       setText((text) => text + 1);
       setheight((wh) => wh + 20);
       setFont((wh) => wh + 10);
+      audioRef?.current.play();
     } else {
       setText(1);
       setWidth((wh) => wh + 50);
       setheight((wh) => wh + 20);
+
       setFont((wh) => wh + 10);
+      audioRef?.current.play();
     }
   };
   const handleYes = () => {
     setYes(true);
     setInterval(createHeart, 300);
+    audioRef?.current.play();
   };
 
   return (
     <div
       className="App"
-      style={{ overflow: "hidden", width: "100%", maxHeight: 1359 }}
+      style={{ overflow: "hidden", width: "100%", maxHeight: 1305 }}
     >
       {yes ? <Confettti /> : ""}
+
       <div>
+        <audio ref={audioRef} loop style={{ display: "none" }}>
+          <source src={music} type="audio/ogg" />
+        </audio>
+        {/* <iframe src={music} allow="autoplay" id="audio"></iframe> */}
+
         <div style={{ overflow: "hidden", width: "100%", height: "100%" }}>
           <div style={{ display: "flex", position: "relative" }}>
             <video
@@ -101,12 +113,28 @@ function App() {
                 {yes ? (
                   ""
                 ) : (
-                  <div className="bt">
+                  <div
+                    className="bt"
+                    style={{
+                      // position: `${widthH >= 800 ? "absolute" : "none"}`,
+                      marginBottom: `${widthH >= 800 ? 700 : 50}px`,
+                    }}
+                  >
                     <button
                       // style={{ maxHeight: 50, maxWidth: 90 }}
-                      className="button-34"
+                      id="button-34"
                       onClick={() => handle()}
-                      style={{ maxWidth: 200, maxHeight: 300 }}
+                      style={{
+                        // maxWidth: 200,
+                        maxHeight: 130,
+                        minWidth: 80,
+                        paddingTop: `${textC == 1 ? 50 : 0}`,
+                        paddingBottom: `${textC == 1 ? 50 : 0}`,
+                        paddingLeft: `${textC == 1 ? 50 : 0}`,
+                        paddingRight: `${textC == 1 ? 50 : 0}`,
+                        // paddingTop: 0,
+                        // paddingBottom: 0,
+                      }}
                     >
                       {yes
                         ? "Loveeeee"

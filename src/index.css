@@ -43,7 +43,7 @@ code {
   cursor: pointer;
   display: inline-block;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  padding: 20px 70px;
+  /* padding: 20px 70px; */
   text-align: center;
   text-decoration: none;
   transition: all 250ms;
@@ -68,7 +68,7 @@ code {
     rgba(44, 187, 99, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
-.button-34 {
+#button-34 {
   background-color: "black";
   border-radius: 100px;
   width: auto;
@@ -79,7 +79,7 @@ code {
   color: green;
   cursor: pointer;
   background-color: cadetblue;
-  display: inline-block;
+  /* display: inline-block; */
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
   padding: 20px 70px;
   text-align: center;
