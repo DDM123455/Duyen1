@@ -51,7 +51,7 @@ function App() {
     }
   };
   const handleYes = () => {
-    setYes(true);
+    setYes(!yes);
     setInterval(createHeart, 300);
     audioRef?.current.play();
   };
